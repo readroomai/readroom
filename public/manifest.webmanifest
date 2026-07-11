@@ -1,0 +1,12 @@
+{
+  "name": "ReadRoom",
+  "short_name": "ReadRoom",
+  "description": "Read the room before you post. AI audience simulation.",
+  "start_url": "/home",
+  "display": "standalone",
+  "background_color": "#F8F7FC",
+  "theme_color": "#F8F7FC",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,10 @@
+<svg width="360" height="96" viewBox="0 0 360 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="360" height="96" fill="#101014"/>
+  <defs>
+    <linearGradient id="g" x1="24" y1="24" x2="72" y2="72" gradientUnits="userSpaceOnUse"><stop stop-color="#B79BFF"/><stop offset="1" stop-color="#F06BB0"/></linearGradient>
+    <mask id="eye"><rect x="24" y="24" width="48" height="48" fill="white"/><ellipse cx="48" cy="48.5" rx="4.6" ry="4.6" fill="black"/></mask>
+  </defs>
+  <path d="M43.5 33A12 12 0 0 0 33 51.6l-1.6 6a1.35 1.35 0 0 0 1.65 1.65l6-1.8A12 12 0 1 0 43.5 33Z" fill="url(#g)" mask="url(#eye)"/>
+  <path d="M52.5 36A12 12 0 0 1 63 54.6l1.65 6a1.35 1.35 0 0 1-1.65 1.65l-6-1.8A12 12 0 1 1 52.5 36Z" fill="#FFFFFF" fill-opacity="0.9" mask="url(#eye)"/>
+  <text x="92" y="58" font-family="Geist, Inter, sans-serif" font-size="34" font-weight="600" fill="#FFFFFF">read<tspan fill="#B0AEB8">room</tspan></text>
+</svg>
