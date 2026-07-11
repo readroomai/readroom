@@ -1,5 +1,6 @@
 import 'server-only';
 import { promises as fs } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { nanoid, slugify } from '@/lib/utils';
 import { PRESET_ROOMS } from '@/lib/constants';
@@ -40,7 +41,23 @@ const EMPTY: DB = {
   uploads: [],
 };
 
-const DATA_DIR = process.env.READROOM_DATA_DIR || path.join(process.cwd(), '.data');
+/**
+ * Resolve a writable data directory. Serverless/production hosts (Vercel,
+ * Netlify, etc.) mount the project directory read-only and only allow writes to
+ * the OS temp dir — so writing `.data/` under cwd there throws EROFS and crashes
+ * the first page that touches the store. We fall back to the temp dir in those
+ * environments. Note: temp storage is per-instance and ephemeral; a real
+ * production deployment should set DATABASE_URL to use Postgres (PgStore).
+ */
+function resolveDataDir(): string {
+  if (process.env.READROOM_DATA_DIR) return process.env.READROOM_DATA_DIR;
+  const serverless =
+    process.env.VERCEL || process.env.NETLIFY || process.env.AWS_REGION || process.env.NODE_ENV === 'production';
+  if (serverless) return path.join(os.tmpdir(), 'readroom-data');
+  return path.join(process.cwd(), '.data');
+}
+
+const DATA_DIR = resolveDataDir();
 const DATA_FILE = path.join(DATA_DIR, 'readroom.json');
 
 /**
