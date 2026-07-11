@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Wordmark } from '@/components/brand';
+import { Wordmark, XIcon, FOUNDER_X_URL } from '@/components/brand';
 
 const COLS: { title: string; links: { href: string; label: string }[] }[] = [
   {
@@ -48,6 +48,14 @@ export function SiteFooter() {
             <p className="mt-3 text-sm text-ink-muted">
               AI audience intelligence for people whose words carry weight.
             </p>
+            <a
+              href={FOUNDER_X_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 text-sm text-ink-soft transition hover:text-ink"
+            >
+              <XIcon className="h-3.5 w-3.5" /> @GiaMMacool
+            </a>
           </div>
           {COLS.map((c) => (
             <div key={c.title}>
@@ -73,6 +81,15 @@ export function SiteFooter() {
             <Link href="/privacy" className="hover:text-ink">Privacy</Link>
             <Link href="/terms" className="hover:text-ink">Terms</Link>
             <Link href="/ai" className="hover:text-ink">AI limitations</Link>
+            <a
+              href={FOUNDER_X_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="ReadRoom on X"
+              className="transition hover:text-ink"
+            >
+              <XIcon className="h-3.5 w-3.5" />
+            </a>
           </div>
         </div>
       </div>

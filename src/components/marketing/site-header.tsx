@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Wordmark } from '@/components/brand';
+import { Wordmark, XIcon, FOUNDER_X_URL } from '@/components/brand';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
 
@@ -56,6 +56,15 @@ export function SiteHeader({ authed }: { authed: boolean }) {
         </nav>
 
         <div className="hidden items-center gap-5 md:flex">
+          <a
+            href={FOUNDER_X_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ReadRoom on X"
+            className="text-ink-soft transition hover:text-ink"
+          >
+            <XIcon />
+          </a>
           {authed ? (
             <Button asChild size="sm">
               <Link href="/home">Open studio</Link>
@@ -108,6 +117,15 @@ export function SiteHeader({ authed }: { authed: boolean }) {
                 {n.label}
               </Link>
             ))}
+            <a
+              href={FOUNDER_X_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="serif flex items-center gap-3 text-4xl text-ink"
+            >
+              <XIcon className="h-7 w-7" /> X
+            </a>
           </nav>
           <div className="mt-auto flex flex-col gap-3">
             {authed ? (
