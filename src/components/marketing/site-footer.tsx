@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Wordmark, XIcon, FOUNDER_X_URL } from '@/components/brand';
+import { ProductHuntBadge } from './product-hunt-badge';
 
 const COLS: { title: string; links: { href: string; label: string }[] }[] = [
   {
@@ -56,6 +57,9 @@ export function SiteFooter() {
             >
               <XIcon className="h-3.5 w-3.5" /> @GiaMMacool
             </a>
+            <div className="mt-6">
+              <ProductHuntBadge />
+            </div>
           </div>
           {COLS.map((c) => (
             <div key={c.title}>

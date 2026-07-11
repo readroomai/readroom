@@ -12,6 +12,7 @@ import {
   VoiceVisual,
   AuditVisual,
 } from '@/components/marketing/capability-visuals';
+import { ProductHuntBadge } from '@/components/marketing/product-hunt-badge';
 
 export default function LandingPage() {
   return (
@@ -45,6 +46,9 @@ export default function LandingPage() {
           <p className="mt-5 text-sm text-ink-muted">
             Private by default. Your unpublished words remain yours.
           </p>
+          <div className="mt-8 flex justify-center">
+            <ProductHuntBadge eager />
+          </div>
         </div>
 
         {/* product object reveals below the fold */}
