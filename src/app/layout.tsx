@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from 'next';
 import { fontSans, fontMono, fontSerif } from '@/lib/fonts';
 import { AppProviders } from '@/components/providers';
-import { capabilities } from '@/lib/env';
+import { capabilities, env } from '@/lib/env';
 import { cn } from '@/lib/utils';
 import './globals.css';
 
-const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000';
+// Canonical site URL — locked to www.readroom.blog in production via env.appUrl.
+const appUrl = env.appUrl;
 
 export const metadata: Metadata = {
   metadataBase: new URL(appUrl),

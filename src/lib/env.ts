@@ -61,7 +61,7 @@ export const env = {
   nodeEnv: e.NODE_ENV,
   appUrl:
     e.NEXT_PUBLIC_APP_URL ??
-    (e.NODE_ENV === 'production' ? 'https://readroom.app' : 'http://localhost:3000'),
+    (e.NODE_ENV === 'production' ? 'https://www.readroom.blog' : 'http://localhost:3000'),
 
   clerk: {
     publishableKey: e.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
