@@ -46,7 +46,15 @@ if (hasClerk) {
   );
   handler = clerkMiddleware(async (auth, req) => {
     if (isProtectedRoute(req)) {
-      await auth.protect();
+      const { userId } = await auth();
+      if (!userId) {
+        // Explicit redirect to our in-app sign-in (avoids Clerk's default 404
+        // when no hosted sign-in URL is configured), preserving the return path.
+        const url = req.nextUrl.clone();
+        url.pathname = '/sign-in';
+        url.searchParams.set('redirect_url', req.nextUrl.pathname);
+        return NextResponse.redirect(url);
+      }
     }
   });
 } else {
