@@ -24,6 +24,10 @@ export const metadata: Metadata = {
     'pre-publishing',
   ],
   authors: [{ name: 'Gia Macool' }],
+  // Orynth site verification
+  other: {
+    'ory-verify': 'orynth-1d64df6203e34111b118a90b03113758',
+  },
   openGraph: {
     type: 'website',
     title: 'ReadRoom — Read the room before you post',
